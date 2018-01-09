@@ -3,9 +3,22 @@ colors = generateColors(6);
 let squares = document.querySelectorAll(".square");
 let answerColor = pickedColor();
 let colorDisplay = document.getElementById("color-display");
-let messageDisplay = document.querySelector("#message")
+let messageDisplay = document.querySelector("#message");
+let h1 = document.querySelector("h1");
+let resetButton = document.querySelector("#reset");
 
 colorDisplay.textContent = answerColor;
+
+resetButton.addEventListener("click", () => {
+  colors = generateColors(6);
+  answerColor = pickedColor();
+  colorDisplay.textContent = answerColor
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+  };
+  h1.style.backgroundColor = "#232323";
+})
+
 
 for (let i = 0; i < squares.length; i++) {
   squares[i].style.backgroundColor = colors[i];
@@ -13,7 +26,9 @@ for (let i = 0; i < squares.length; i++) {
     let guessedColor = this.style.backgroundColor;
     if (guessedColor === answerColor) {
       messageDisplay.textContent = "Correct!"
-      changeColors(guessedColor)
+      changeColors(guessedColor);
+      h1.style.backgroundColor = guessedColor;
+      resetButton.textContent = "Play again?"
     } else {
       this.style.backgroundColor = "#232323";
       messageDisplay.textContent = "Try again."
