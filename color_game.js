@@ -7,8 +7,6 @@ let colorDisplay = document.getElementById("color-display");
 let messageDisplay = document.querySelector("#message");
 let h1 = document.querySelector("h1");
 let resetButton = document.querySelector("#reset");
-let easyButton = document.getElementById("easy-button");
-let hardButton = document.getElementById("hard-button");
 let difficultyButtons = document.querySelectorAll(".difficulty");
 
 initialize();
@@ -30,6 +28,23 @@ function setUpDifficulty() {
     });
   }
 }
+
+// function setUpDifficulty() {
+//   for (let i = 0; i < difficultyButtons.length; i++) {
+//     difficultyButtons[i].addEventListener("click", function() {
+//       difficultyButtons[i].classList.remove("selected");
+//       this.classList.add("selected");
+//       if (this.textContent === "Easy") {
+//         numberOfSquares = 3;
+//       } else if (this.textContent === "Medium") {
+//         numberOfSquares = 6;
+//       } else {
+//         numberOfSquares = 9;
+//       }
+//       reset();
+//     });
+//   }
+// }
 
 function setUpSquares() {
   for (let i = 0; i < squares.length; i++) {
